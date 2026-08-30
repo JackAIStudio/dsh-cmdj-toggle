@@ -1,0 +1,36 @@
+{
+  "name": "dsh-cmdj-toggle",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Codex-style focus hotkey for dsh-better-sidebar: Cmd/Ctrl+J collapses or restores the right panel and bottom panel. Pure client plugin, zero coupling to better-sidebar internals.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "LICENSE",
+    "README.zh.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackAIStudio/dsh-cmdj-toggle.git"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  }
+}
