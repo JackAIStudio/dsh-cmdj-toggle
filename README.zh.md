@@ -8,13 +8,17 @@
 ## 行为
 
 - 默认 `target: 'both'`（专注模式）：任一面板开着 → 全部收起；全关着 → 全部展开。
-- 可改成只切换单个面板：在 DevTools console 执行
+- 可在 **DSH 设置 → 侧边卡片 → 常规 →「快捷键切换目标 (Cmd/Ctrl + J)」** 下拉菜单中可视化选择：
+  - **全部面板（右侧与底部）** (`both`)
+  - **仅右侧边栏** (`panel`)
+  - **仅底部面板** (`bottom`)
+- 也可在 DevTools console 直接执行：
 
   ```js
   __dshCmdjToggle.setPrefs({ target: 'panel' })  // 或 'bottom' / 'both'
   ```
 
-  偏好存在 `localStorage['dsh-cmdj-toggle:prefs']`，立即生效，无需重启。
+  偏好存在 `localStorage['dsh-cmdj-toggle:prefs']` 与 DSH 侧边卡片设置中，立即生效，无需重启。
 - 输入框 / textarea / contenteditable 聚焦时不触发；IME 组合输入中不触发；
   按键重复（长按）不触发。
 - Mac 用 Cmd+J，Windows/Linux 用 Ctrl+J。实测 Chrome 下页面可 `preventDefault`

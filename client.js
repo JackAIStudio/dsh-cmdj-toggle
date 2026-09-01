@@ -32,14 +32,12 @@ window.__ModuleLoader__.load({
     function readPrefs() {
       try {
         const raw = window.localStorage.getItem(PREFS_KEY)
-        if (!raw) return { ...DEFAULT_PREFS }
-        const parsed = JSON.parse(raw)
-        return {
-          target: TARGETS.includes(parsed.target) ? parsed.target : DEFAULT_PREFS.target,
+        if (raw) {
+          const parsed = JSON.parse(raw)
+          if (TARGETS.includes(parsed.target)) return { target: parsed.target }
         }
-      } catch {
-        return { ...DEFAULT_PREFS }
-      }
+      } catch {}
+      return { ...DEFAULT_PREFS }
     }
 
     function setPrefs(patch) {
